@@ -4,9 +4,35 @@
   
     
     <entry>
-      <title>key</title>
-      <link href="/2022/09/21/key/"/>
-      <url>/2022/09/21/key/</url>
+      <title>CRYPTO-BUUCTF</title>
+      <link href="/2022/09/27/CRYPTO-BUUCTF/"/>
+      <url>/2022/09/27/CRYPTO-BUUCTF/</url>
+      
+        <content type="html"><![CDATA[<h1 id="CRYPTO"><a href="#CRYPTO" class="headerlink" title="CRYPTO"></a>CRYPTO</h1><h2 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a>MD5</h2><p>md5解码即得flag</p><img src="https://blue-blue-blue-blue.github.io/img/b1.png" width ="60%"><h2 id="一眼就解密"><a href="#一眼就解密" class="headerlink" title="一眼就解密"></a>一眼就解密</h2><p>base64解码</p><img src="https://blue-blue-blue-blue.github.io/img/b2.png" width ="60%"> <h2 id="Url编码"><a href="#Url编码" class="headerlink" title="Url编码"></a>Url编码</h2><p>url解码</p><img src="https://blue-blue-blue-blue.github.io/img/b3.png" width ="60%"> <h2 id="看我回旋踢1"><a href="#看我回旋踢1" class="headerlink" title="看我回旋踢1"></a>看我回旋踢1</h2><p>凯撒解码</p><img src="https://blue-blue-blue-blue.github.io/img/b4.png" width ="60%"> <h2 id="摩丝"><a href="#摩丝" class="headerlink" title="摩丝"></a>摩丝</h2><p>摩斯电码组成</p><img src="https://blue-blue-blue-blue.github.io/img/b5.png" width ="60%"> <h2 id="password"><a href="#password" class="headerlink" title="password"></a>password</h2><p>除了姓名和出生日期什么都没有，提示key里的×有10个，姓名缩写和出生日的字符加起来刚好十个，答案为flag{zs19900315}</p><img src="https://blue-blue-blue-blue.github.io/img/b6.png" width ="60%">  <h2 id="变异凯撒"><a href="#变异凯撒" class="headerlink" title="变异凯撒"></a>变异凯撒</h2><p>凯撒离不开偏移量,afZ_对应flag,按照ASCII表,ASCII值的差分别为5,6,7,8,将密文字符的偏移量依次加1即可(不能用解码程序,只能按ASCII表依次对照)</p><img src="https://blue-blue-blue-blue.github.io/img/b7.png" width ="60%"> <img src="https://blue-blue-blue-blue.github.io/img/ASCII.jpg" width ="60%">  <h2 id="Quoted-printable1"><a href="#Quoted-printable1" class="headerlink" title="Quoted-printable1"></a>Quoted-printable1</h2><p>Quoted-printable解码后用flag{}包裹</p><img src="https://blue-blue-blue-blue.github.io/img/b8.png" width ="60%">  <h2 id="Rabbit1"><a href="#Rabbit1" class="headerlink" title="Rabbit1"></a>Rabbit1</h2><p>Rabbit解密</p><img src="https://blue-blue-blue-blue.github.io/img/b9.png" width ="60%">  <h2 id="篱笆墙的影子1"><a href="#篱笆墙的影子1" class="headerlink" title="篱笆墙的影子1"></a>篱笆墙的影子1</h2><p>栅栏密码解密</p><img src="https://blue-blue-blue-blue.github.io/img/b10.png" width ="60%">  ]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>crypto-key</title>
+      <link href="/2022/09/27/crypto-key/"/>
+      <url>/2022/09/27/crypto-key/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>注意提示(key),可能是x的数量</p></blockquote><blockquote><p>解密网址</p><p><a href="https://cmd5.com/">MD5(解)</a>    <a href="https://www.iamwawa.cn/urldecode.html">MD5(加) 、url</a>  <a href="https://wtool.com.cn/quoted.html">Quoted-printable</a> <a href="https://www.sojson.com/encrypt_rabbit.html">Rabbit</a> </p><p><a href="https://ctf.bugku.com/tools">base、凯撒、栅栏、UUencode、XXencode、希尔、与佛论禅、ADFGX、核心价值观编码、Sojson、维吉尼亚、TripleDes(3DES)、Brainfuck&#x2F;OoK</a>  </p></blockquote><blockquote><p>MD5 </p><p>组成：由数字和字母(全小写或者全大写)组成。</p><p>eg:04ad5938eaf0efb&#x2F;327a6c4304ad5938eaf0efb6cc3e53dc(flag)，c3088560732a5ac1&#x2F;f95b70fdc3088560732a5ac135644506(“{“)，8e05c9709e5dcaed&#x2F;cbb184dd8e05c9709e5dcaedaa0495cf(“}”)</p></blockquote><blockquote><p>base</p><blockquote><p>base64 </p><p>组成：含大小写字母、数字、<strong>末尾可能有1、2个“&#x3D;”</strong></p><p>用于url的base64编码：结尾填充“&#x3D;”，并将标准Base64中的“+”和“&#x2F;”分别改成了“-”和“_”</p><p>用于正则表达式的改进Base64变种，它将“+”和“&#x2F;”改成了“!”和“-”</p><p>Base64要求把每三个8Bit的字节转换为四个6Bit的字节（3<em>8 &#x3D; 4</em>6 &#x3D; 24），然后把6Bit再添两位高位0，组成四个8Bit的字节，也就是说，转换后的字符串理论上将要比原来的长1&#x2F;3。(不计填充末尾的等号约为1&#x2F;3) </p><p>eg:<strong>ZmxhZw</strong>&#x3D;&#x3D;（flag），ew(“{“)，fQ(“}”)</p></blockquote></blockquote><blockquote><p>url</p><p>组成：由%加数字、字母组成。</p><p>RFC3986 协议规定 URL 只允许包含以下四种字符：<br>1、英文字母（a-zA-Z）<br>2、数字（0-9）<br>3、-_.~ 4个特殊字符<br>4、所有保留字符，RFC3986 中指定了以下字符为保留字符（英文字符）： ! * ‘ ( ) ; : @ &amp; &#x3D; + $ , &#x2F; ? # [ ]</p><p>eg:%7B(“{“),%7D(“}”),%66%6c%61%67**%7b**%61%6e%64%20%31%3d%31**%7d** </p></blockquote><blockquote><p>古典密码</p><blockquote><p>凯撒</p><p>组成：解码要知道<strong>偏移量</strong>，一定含有字母 </p><p>eg:synt{5pq1004q-86n5-46q8-o720-oro5on0417r1}</p></blockquote><blockquote><p>摩斯电码</p><p>组成：解码需要知道<strong>分隔、长、短</strong>（常为空格、-、 .），密文由两种符号和分隔组成</p><p>eg:..-. .-.. .- –. —-.–(flag{)</p></blockquote><blockquote><p>栅栏密码</p><p>所谓栅栏密码，就是把要加密的明文分成N个一组，然后把每组的第1个字连起来，形成一段无规律的话。 不过栅栏密码本身有一个潜规则，就是组成栅栏的字母一般不会太多。（一般不超过30个，也就是一、两句话）</p><p>组成:栏数(可点击网址枚举解密),由明文字符打乱顺序组成</p></blockquote></blockquote><blockquote><p>Quoted-printable</p><p>Quoted-printable可译为“可打印字符引用编码”，编码常用在电子邮件中，如：Content-Tra […]</p><p>组成:密文由&#x3D;加 字母或数学 加 字母或者数字</p><p>任何一个8位的字节值可编码为3个字符：一个等号”&#x3D;”后跟随两个十六进制数字(0–9或A–F)表示该字节的数值</p><p>eg:&#x3D;E9&#x3D;82&#x3D;A3&#x3D;E4&#x3D;BD&#x3D;A0&#x3D;E4&#x3D;B9&#x3D;9F&#x3D;E5&#x3D;BE&#x3D;88&#x3D;E6&#x3D;A3&#x3D;92&#x3D;E5&#x3D;93&#x3D;A6</p></blockquote><blockquote><p>Rabbit</p><p>Rabbit加密是什么 Rabbit 是一种高速流密码，于 2003 年在 FSE 研讨会上首次提出。 Rabbit 使用一个 128 位密钥和一个 64 位初始化向量。 该加密算法的核心组件是一个位流生成器，该流生成器每次迭代都会加密 128 个消息位。</p><p>组成:字母,&#x3D;,+,&#x2F;     以U2FsdGVkX1开头;可能以&#x3D;结尾</p><p>eg:U2FsdGVkX1&#x2F;+ydnDPowGbjjJXhZxm2MP2AgI</p></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>web key</title>
+      <link href="/2022/09/21/web-key/"/>
+      <url>/2022/09/21/web-key/</url>
       
         <content type="html"><![CDATA[<blockquote><p>万能密码</p><p>以 x’ or’ 1 为例，当输入密码后，sql语句变为SELECT * FROM admin WHERE Username&#x3D; ‘用户名’ AND password&#x3D;’ <u>x’ or’  1</u> ‘    由于单引号的插入，且优先级not&gt;and&gt;or，语句变为<u>……AND password&#x3D;’x’</u>   or   <u>‘1’</u>   ,or后的语句恒为真,整条语句为真。  </p><p>同理，用户名输入1’ or 1 or ‘1’&#x3D;’1，语句…<u>Username&#x3D;’  1′</u> or <u>1</u> or <u>‘1’&#x3D;’1’</u> AND…… ,整条语句为真。   </p><p>（疑问：以buuctf  EasySQL1为例，用户名输1’ or ’1或者1’ or ‘1’&#x3D;’1显示错误）  </p><p>（解答：and的优先级比or高，0 or 1 and 0 等于 0 or 0 等于0 ）</p></blockquote><blockquote><p>注释</p><p>注释里有可能会有提示，如源码注释标有source.php,则需在url后加source.php进行查看</p></blockquote><blockquote><p>php  函数</p><blockquote><p>isset函数</p><p>如果指定变量存在且不为 NULL，则返回 TRUE，否则返回 FALSE。</p><p>如果一次传入多个参数，那么 isset() 只有在全部参数都被设置时返回 TRUE，计算过程从左至右，中途遇到没有设置的变量时就会立即停止。  </p></blockquote><blockquote><p>urldecode()函数</p><p>urldecode() 解码 URL 字符串函数。</p></blockquote><blockquote><p>substr函数  </p><p>SUBSTR() 函数从字符串中提取子字符串（从任意位置开始）。</p><p>语法：SUBSTR(<em>string</em>, <em>start</em>, <em>length</em>)  或者 SUBSTR(<em>string</em> FROM <em>start</em> FOR <em>length</em>)</p><p>length要提取的字符数。 如果省略，将返回整个字符串（从 <em>start</em> 位置开始）  </p></blockquote><blockquote><p>strpos函数</p><p>strpos() 函数查找字符串在另一字符串中第一次出现的位置。</p><p>语法：strpos(string,find,start)</p><p>stripos()- 查找字符串在另一字符串中第一次出现的位置（不区分大小写）</p><p>strripos() - 查找字符串在另一字符串中最后一次出现的位置（不区分大小写）</p><p>strrpos() - 查找字符串在另一字符串中最后一次出现的位置（区分大小写）</p></blockquote></blockquote>]]></content>
       
@@ -17,9 +43,9 @@
     
     
     <entry>
-      <title>WP of BUUCTF</title>
-      <link href="/2022/09/21/WP-of-BUUCTF/"/>
-      <url>/2022/09/21/WP-of-BUUCTF/</url>
+      <title>Web</title>
+      <link href="/2022/09/21/WEB-BUUCTF/"/>
+      <url>/2022/09/21/WEB-BUUCTF/</url>
       
         <content type="html"><![CDATA[<h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h2 id="极客大挑战-2019-EasySQL-1"><a href="#极客大挑战-2019-EasySQL-1" class="headerlink" title="[极客大挑战 2019]EasySQL 1"></a>[极客大挑战 2019]EasySQL 1</h2><p>用户名随意输，密码输入万能密码即可  </p><img src="https://blue-blue-blue-blue.github.io/img/a1.jpg" width ="60%">   <h2 id="HCTF-2018-WarmUp-1"><a href="#HCTF-2018-WarmUp-1" class="headerlink" title="[HCTF 2018]WarmUp 1"></a>[HCTF 2018]WarmUp 1</h2><p>ctrl+u查看源码，看到提示“source.php”   </p><img src="https://blue-blue-blue-blue.github.io/img/a2.jpg" width ="60%">    <p>代码审计，url后加?file&#x3D;source.php%253..&#x2F;(*n)flag  ，最后加了5个..&#x2F;得到flag</p><img src="https://blue-blue-blue-blue.github.io/img/a3.jpg" width ="60%">  <h2 id="Havefun-1"><a href="#Havefun-1" class="headerlink" title="Havefun 1"></a>Havefun 1</h2><p>查看源码，在注释看见提示信息，在url&#x2F;后加?cat&#x3D;dog，即get传参即可得到flag</p><img src="https://blue-blue-blue-blue.github.io/img/a4.jpg" width ="60%">  ]]></content>
       
