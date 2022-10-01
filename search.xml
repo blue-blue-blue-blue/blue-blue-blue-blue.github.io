@@ -8,7 +8,7 @@
       <link href="/2022/10/01/problems-of-software/"/>
       <url>/2022/10/01/problems-of-software/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>下载软件后，弹出下面样式的窗口不要急着关闭，让它跑一会</p><img src="https://blue-blue-blue-blue.github.io/img/d2.png" width ="60%"></blockquote><blockquote><p>Q:安装gmpy2时，显示</p><img src="https://blue-blue-blue-blue.github.io/img/d1.png" width ="60%"><p>A:python版本有3.x和2.x,将pip换成pip3再进行下载就不会有黄色字样的提醒；</p><p>更新了一下wheel,发现还是有相同的红色字样的报错（is not a supported wheel on this platform），其实是版本下载错了。运行<strong>pip debug –verbose</strong>，查看支持的版本，换成win_amd64的版本就行了</p></blockquote><blockquote><p>Q:下载nodejs后，输入命令npm -v没有回显，直接进入下一行</p><p>A:在C盘(这里一定是C盘，假如你把nodejs下到D盘，那也是找C盘) &#x3D;&gt; 用户（Users）&#x3D;&gt; Administrator（比如我的Administrator就是v587）&#x3D;&gt;删除.npmrc文件就可以了。（注意是.npmrc不是npmrc）</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>下载软件后，弹出下面样式的窗口不要急着关闭，让它跑一会</p><img src="https://blue-blue-blue-blue.github.io/img/d2.png" width ="60%"></blockquote><blockquote><p>Q:安装gmpy2时，显示</p><img src="https://blue-blue-blue-blue.github.io/img/d1.jpg" width ="60%"><p>A:python版本有3.x和2.x,将pip换成pip3再进行下载就不会有黄色字样的提醒；</p><p>更新了一下wheel,发现还是有相同的红色字样的报错（is not a supported wheel on this platform），其实是版本下载错了。运行<strong>pip debug –verbose</strong>，查看支持的版本，换成win_amd64的版本就行了</p></blockquote><blockquote><p>Q:下载nodejs后，输入命令npm -v没有回显，直接进入下一行</p><p>A:在C盘(这里一定是C盘，假如你把nodejs下到D盘，那也是找C盘) &#x3D;&gt; 用户（Users）&#x3D;&gt; Administrator（比如我的Administrator就是v587）&#x3D;&gt;删除.npmrc文件就可以了。（注意是.npmrc不是npmrc）</p></blockquote>]]></content>
       
       
       
