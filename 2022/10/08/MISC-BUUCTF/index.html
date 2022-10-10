@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>MISC-BUUCTF | 蓝灵的博客</title><meta name="author" content="蓝灵"><meta name="copyright" content="蓝灵"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="MISC黄三胖在ps中一帧一帧查看即可 二维码扫描二维码，没有结果。在101打开，发现文件结尾不是AE 42 60 82（png文件结尾标志），AE 42 60 82后是50 4B 03 04（.zip文件开始的标志）      在Linux终端执行“binwalk -e 文件名”，会自动下载zip文件，打开后发现需要密码，执行”fcrackzip -b -c1 -u -l4 文件名“ 你竟然赶我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MISC-BUUCTF">
+<meta property="og:url" content="http://blue-blue-blue-blue.github.io.git/2022/10/08/MISC-BUUCTF/index.html">
+<meta property="og:site_name" content="蓝灵的博客">
+<meta property="og:description" content="MISC黄三胖在ps中一帧一帧查看即可 二维码扫描二维码，没有结果。在101打开，发现文件结尾不是AE 42 60 82（png文件结尾标志），AE 42 60 82后是50 4B 03 04（.zip文件开始的标志）      在Linux终端执行“binwalk -e 文件名”，会自动下载zip文件，打开后发现需要密码，执行”fcrackzip -b -c1 -u -l4 文件名“ 你竟然赶我">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blue-blue-blue-blue.github.io.git/img/7.jpg">
+<meta property="article:published_time" content="2022-10-08T02:33:41.000Z">
+<meta property="article:modified_time" content="2022-10-10T15:30:31.406Z">
+<meta property="article:author" content="蓝灵">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blue-blue-blue-blue.github.io.git/img/7.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blue-blue-blue-blue.github.io.git/2022/10/08/MISC-BUUCTF/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":50},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 蓝灵","link":"链接: ","source":"来源: 蓝灵的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'MISC-BUUCTF',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2022-10-10 23:30:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/3.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/./img/7.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">蓝灵的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">MISC-BUUCTF</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-08T02:33:41.000Z" title="发表于 2022-10-08 10:33:41">2022-10-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-10T15:30:31.406Z" title="更新于 2022-10-10 23:30:31">2022-10-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">706</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MISC-BUUCTF"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><h2 id="黄三胖"><a href="#黄三胖" class="headerlink" title="黄三胖"></a>黄三胖</h2><p>在ps中一帧一帧查看即可</p>
+<h2 id="二维码"><a href="#二维码" class="headerlink" title="二维码"></a>二维码</h2><p>扫描二维码，没有结果。在101打开，发现文件结尾不是AE 42 60 82（png文件结尾标志），AE 42 60 82后是50 4B 03 04（.zip文件开始的标志）      在Linux终端执行“binwalk -e 文件名”，会自动下载zip文件，打开后发现需要密码，执行”fcrackzip -b -c1 -u -l4 文件名“</p>
+<h2 id="你竟然赶我走-1"><a href="#你竟然赶我走-1" class="headerlink" title="你竟然赶我走 1"></a>你竟然赶我走 1</h2><p>010查看，末尾即是flag</p>
+<h2 id="N种方法解决-1"><a href="#N种方法解决-1" class="headerlink" title="N种方法解决 1"></a>N种方法解决 1</h2><p>exe打不开，用010打开,发现不是exe文件，是.jpg转成了base64，将010里的一长串复制到浏览器的url，得到二维码，扫出来即可</p>
+<img src="https://blue-blue-blue-blue.github.io/img/c1.png" width ="60%">
+
+<h2 id="大白-1"><a href="#大白-1" class="headerlink" title="大白 1"></a>大白 1</h2><p>用010打开，修改图片长度（用二进制打开的.png文件的第二行中，前四位表示的是宽度，接下来四位表示的是长度）</p>
+<h2 id="乌镇峰会种图"><a href="#乌镇峰会种图" class="headerlink" title="乌镇峰会种图"></a>乌镇峰会种图</h2><p>用010打开，末尾即是flag</p>
+<h2 id="基础破解"><a href="#基础破解" class="headerlink" title="基础破解"></a>基础破解</h2><p>已知rar压缩包密码四位数字，ARCHPR爆破一下,再base64解密</p>
+<img src="https://blue-blue-blue-blue.github.io/img/c2.png" width ="60%">
+
+<h2 id="wireshark"><a href="#wireshark" class="headerlink" title="wireshark"></a>wireshark</h2><p>将文件在wireshark打开，输入http.request.method&#x3D;&#x3D;POST筛选，再字符串查找flag</p>
+<img src="https://blue-blue-blue-blue.github.io/img/c3.png" width ="60%">
+
+<h2 id="文件中的秘密-1"><a href="#文件中的秘密-1" class="headerlink" title="文件中的秘密 1"></a>文件中的秘密 1</h2><p>010打开，提示EXIF，点击图片属性查看，备注里就有flag</p>
+<img src="https://blue-blue-blue-blue.github.io/img/c4.png" width ="60%">
+
+<h2 id="LSB-1"><a href="#LSB-1" class="headerlink" title="LSB 1"></a>LSB 1</h2><p>用stegsolve打开，依次查看图像，发现red,blue,green0通道似乎有东西，选择后点击save bin,发现是png文件，打开扫二维码即可</p>
+<img src="https://blue-blue-blue-blue.github.io/img/c5.png" width ="60%">
+
+<h2 id="zip伪加密"><a href="#zip伪加密" class="headerlink" title="zip伪加密"></a>zip伪加密</h2><p>010打开，将2个09改为00，之后就没有密码了</p>
+<img src="https://blue-blue-blue-blue.github.io/img/c6.png" width ="60%">
+
+<h2 id="rar"><a href="#rar" class="headerlink" title="rar"></a>rar</h2><p>已知rar压缩包密码四位数字，ARCHPR爆破一下</p>
+<h2 id="被嗅探的流量-1"><a href="#被嗅探的流量-1" class="headerlink" title="被嗅探的流量 1"></a>被嗅探的流量 1</h2><p>用wireshark 打开，筛选POST，追踪TCP流，查找flag</p>
+<img src="https://blue-blue-blue-blue.github.io/img/c7.png" width ="60%">
+
+<h2 id="qr"><a href="#qr" class="headerlink" title="qr"></a>qr</h2><p>扫二维码即可</p>
+<h2 id="镜子里面的世界"><a href="#镜子里面的世界" class="headerlink" title="镜子里面的世界"></a>镜子里面的世界</h2><p>用Stegsolve打开，R、G、B通道的最低有效位导出的txt文件里即包含flag</p>
+<img src="https://blue-blue-blue-blue.github.io/img/c8.png" width ="60%">
+
+<h2 id="ningen"><a href="#ningen" class="headerlink" title="ningen"></a>ningen</h2><p>用010打开，发现是图片里藏有zip文件，分离出来，用ARCHPR爆破即可</p>
+<h2 id="小明的保险箱"><a href="#小明的保险箱" class="headerlink" title="小明的保险箱"></a>小明的保险箱</h2><p>用010打开，发现是图片里藏有zip文件，分离出来，用ARCHPR爆破即可</p>
+<h2 id="爱因斯坦"><a href="#爱因斯坦" class="headerlink" title="爱因斯坦"></a>爱因斯坦</h2><p>用010打开，发现是图片里藏有zip文件，分离出来。伪加密的解法行不通，点击图片属性，备注即使zip密码</p>
+<h2 id="easycap"><a href="#easycap" class="headerlink" title="easycap"></a>easycap</h2><p>wireshark打开，发现从第四个包开始陆续有包有Data,将Data的数据依次记录下来，执行16进制转ASCII</p>
+<img src="https://blue-blue-blue-blue.github.io/img/c9.png" width ="60%">
+
+<h2 id="隐藏的钥匙"><a href="#隐藏的钥匙" class="headerlink" title="隐藏的钥匙"></a>隐藏的钥匙</h2><p>用010打开，发现里面有base64加密的flag，解密即可</p>
+<h2 id="另外一个世界"><a href="#另外一个世界" class="headerlink" title="另外一个世界"></a>另外一个世界</h2><p>用010打开，发现末尾是一串二进制码，2转16转ASCII即可</p>
+<h2 id="FLAG"><a href="#FLAG" class="headerlink" title="FLAG"></a>FLAG</h2><p>用Stegsolve打开，分出zip文件，flag就在里面</p>
+<img src="https://blue-blue-blue-blue.github.io/img/c10.png" width ="60%">
+
+<h2 id="神秘龙卷风"><a href="#神秘龙卷风" class="headerlink" title="神秘龙卷风"></a>神秘龙卷风</h2><p>ARCHPR爆破出密码后，brainfuck运行即可</p>
+<h2 id="假如给我三天光明"><a href="#假如给我三天光明" class="headerlink" title="假如给我三天光明"></a>假如给我三天光明</h2><p>照片下面有盲文，对照得打开音频文件的密码，用Audacity打开，摩斯密码解密得到CTFWPEI08732?23DZ，但是flag是flag{wpei08732?23dz}  （啧）</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://blue-blue-blue-blue.github.io.git">蓝灵</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://blue-blue-blue-blue.github.io.git/2022/10/08/MISC-BUUCTF/">http://blue-blue-blue-blue.github.io.git/2022/10/08/MISC-BUUCTF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://blue-blue-blue-blue.github.io.git" target="_blank">蓝灵的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/./img/7.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/10/08/misc-key/"><img class="prev-cover" src="/./img/10.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">misc-key</div></div></a></div><div class="next-post pull-right"><a href="/2022/10/01/problems-of-software/"><img class="next-cover" src="/./img/2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">problems-of-software</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MISC"><span class="toc-number">1.</span> <span class="toc-text">MISC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%84%E4%B8%89%E8%83%96"><span class="toc-number">1.1.</span> <span class="toc-text">黄三胖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E7%A0%81"><span class="toc-number">1.2.</span> <span class="toc-text">二维码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%A0%E7%AB%9F%E7%84%B6%E8%B5%B6%E6%88%91%E8%B5%B0-1"><span class="toc-number">1.3.</span> <span class="toc-text">你竟然赶我走 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#N%E7%A7%8D%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3-1"><span class="toc-number">1.4.</span> <span class="toc-text">N种方法解决 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E7%99%BD-1"><span class="toc-number">1.5.</span> <span class="toc-text">大白 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%8C%E9%95%87%E5%B3%B0%E4%BC%9A%E7%A7%8D%E5%9B%BE"><span class="toc-number">1.6.</span> <span class="toc-text">乌镇峰会种图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%A0%B4%E8%A7%A3"><span class="toc-number">1.7.</span> <span class="toc-text">基础破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wireshark"><span class="toc-number">1.8.</span> <span class="toc-text">wireshark</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E7%A7%98%E5%AF%86-1"><span class="toc-number">1.9.</span> <span class="toc-text">文件中的秘密 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LSB-1"><span class="toc-number">1.10.</span> <span class="toc-text">LSB 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zip%E4%BC%AA%E5%8A%A0%E5%AF%86"><span class="toc-number">1.11.</span> <span class="toc-text">zip伪加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rar"><span class="toc-number">1.12.</span> <span class="toc-text">rar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A2%AB%E5%97%85%E6%8E%A2%E7%9A%84%E6%B5%81%E9%87%8F-1"><span class="toc-number">1.13.</span> <span class="toc-text">被嗅探的流量 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#qr"><span class="toc-number">1.14.</span> <span class="toc-text">qr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E5%AD%90%E9%87%8C%E9%9D%A2%E7%9A%84%E4%B8%96%E7%95%8C"><span class="toc-number">1.15.</span> <span class="toc-text">镜子里面的世界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ningen"><span class="toc-number">1.16.</span> <span class="toc-text">ningen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E6%98%8E%E7%9A%84%E4%BF%9D%E9%99%A9%E7%AE%B1"><span class="toc-number">1.17.</span> <span class="toc-text">小明的保险箱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6"><span class="toc-number">1.18.</span> <span class="toc-text">爱因斯坦</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#easycap"><span class="toc-number">1.19.</span> <span class="toc-text">easycap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E7%9A%84%E9%92%A5%E5%8C%99"><span class="toc-number">1.20.</span> <span class="toc-text">隐藏的钥匙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%A6%E5%A4%96%E4%B8%80%E4%B8%AA%E4%B8%96%E7%95%8C"><span class="toc-number">1.21.</span> <span class="toc-text">另外一个世界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FLAG"><span class="toc-number">1.22.</span> <span class="toc-text">FLAG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%A7%98%E9%BE%99%E5%8D%B7%E9%A3%8E"><span class="toc-number">1.23.</span> <span class="toc-text">神秘龙卷风</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%87%E5%A6%82%E7%BB%99%E6%88%91%E4%B8%89%E5%A4%A9%E5%85%89%E6%98%8E"><span class="toc-number">1.24.</span> <span class="toc-text">假如给我三天光明</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/./img/7.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By 蓝灵</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
